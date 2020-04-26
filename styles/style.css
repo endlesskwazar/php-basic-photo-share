@@ -1,0 +1,16 @@
+#photo_wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.phto_item {
+    float: left;
+    margin-left: 10px;
+    width: 45%;
+}
+
+.photo {
+    max-width: 100%;
+    height: auto;
+}
+
