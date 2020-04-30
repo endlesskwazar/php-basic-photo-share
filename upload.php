@@ -1,4 +1,7 @@
 <?php
+include 'helpers/guard.php';
+?>
+<?php
     include 'templates/head.php' 
 ?>
 
