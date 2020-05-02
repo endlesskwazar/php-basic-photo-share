@@ -1,5 +1,5 @@
 <?php
-include 'helpers/guard.php';
+include '../helpers/guard.php';
 ?>
 <?php
 

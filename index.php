@@ -45,7 +45,7 @@ while(!feof($dbFile)) {
             Author: <span>$item[1]</span>
         </div>
     </div>
-    EOD;
+EOD;
 
 
 }
