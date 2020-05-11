@@ -8,7 +8,7 @@ $password = htmlspecialchars($_POST['password']);
 $user = find_by_login_and_password($login, $password);
 
 if($user) {
-    login($login);
+    login($user['id'], $user['login']);
     header("Location: /");
 } else {
     echo 'login or password wrong';

@@ -15,8 +15,14 @@ include 'helpers/guard.php';
 </div>
 
 <div>
-    <label for="author">Author:</label>
-    <input type="text" name="author">
+    <label for="title">Category:</label>
+    
+    <select name="category">
+    <!-- Iterate over table categories. Display option with value as category id -->
+    
+        <option value="1">Movie</option>
+        <option value="2">Nature</option>
+    </select>
 </div>
 
 <div>

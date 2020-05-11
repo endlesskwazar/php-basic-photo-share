@@ -4,13 +4,22 @@
 <?php
     include 'templates/head.php' 
 ?>
+<?php
+include 'helpers/photos.php';
+?>
 
 <h1>Photo share app</h1>
 
 <?php
-echo "Hello, " . get_logged_user();
+$user = get_logged_user();
 
-if(get_logged_user() != "Anonimus") {
+if(is_array($user)) {
+    $user = get_logged_user()['login'];
+}
+
+echo "Hello, " . $user;
+
+if($user != "Anonimus") {
     echo "<a href='logout.php'>Logout</a>";
 }
 ?>
@@ -23,34 +32,25 @@ if(get_logged_user() != "Anonimus") {
 
 <?php
 
-$dbFile = fopen("db.txt", "r");
+$list = get_all_photos();
 
-while(!feof($dbFile)) {
-
-    $item = trim(fgets($dbFile));
-
-    if ($item == "") {
-        break;
-    }
-
-    $item = explode("||", $item);
-
-    echo <<<EOD
-    <div class="phto_item">
-        <img class="photo" src="uploads/$item[2]" />
-        <div>
-            Title: <b>$item[0]</b>
+if(!$list) {
+    echo 'There are no photos';
+} else {
+    foreach($list as $photo) {
+        echo <<<EOD
+        <div class="phto_item">
+            <img class="photo" src="uploads/$photo[src]" />
+            <div>
+                Title: <b>$photo[title]</b>
+            </div>
+            <div>
+                Author: <span>$photo[author]</span>
+            </div>
         </div>
-        <div>
-            Author: <span>$item[1]</span>
-        </div>
-    </div>
 EOD;
-
-
+    }
 }
-
-fclose($dbFile);
 
 ?>
 
